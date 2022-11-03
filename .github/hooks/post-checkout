@@ -1,0 +1,2 @@
+#! /bin/zsh --no-rcs
+git submodule update --recursive --init --remote
