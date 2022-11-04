@@ -1,0 +1,20 @@
+name: Update
+on: push
+  #schedule:
+  #- cron: 0 5 * * *
+
+jobs:
+  Update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        ls /home/linuxbrew/.linuxbrew
+
+    - run: echo /home/linuxbrew/.linuxbrew >> $GITHUB_PATH
+
+    - name: ${{ github.workflow }}
+      #env:
+        #ACTIONS_STEP_DEBUG: ${{ secrets.ACTIONS_STEP_DEBUG }}
+      #shell: /bin/zsh --no-rcs --pipe-fail {0}
+      run: ./update.command #$GITHUB_WORKSPACE/
